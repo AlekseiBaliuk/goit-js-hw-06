@@ -14,13 +14,18 @@ const images = [
 ];
 
 const listGalleryEl = document.querySelector('.gallery');
-console.log('listGalleryEl', listGalleryEl);
 
-const itemsEl = images
-  .map(({ url, alt }) => {
-    return `<li><img src='${url}' alt='${alt}' width="320" height="200"></li>`;
-  })
-  .join('');
+// const itemsEl = images
+//   .map(({ url, alt }) => {
+//     return `<li><img src='${url}' alt='${alt}' width="320" height="200"></li>`;
+//   })
+//   .join('');
+
+// ==========================================================
+
+const itemsEl = images.reduce((acc, { url, alt }) => {
+  return acc + `<li><img src='${url}' alt='${alt}' width="320" height="200"></li>`;
+}, '');
 
 listGalleryEl.insertAdjacentHTML('afterbegin', itemsEl);
 

@@ -5,10 +5,17 @@ const refs = {
 
 refs.input.addEventListener('input', onInputChange);
 
-function onInputChange(event) {
-  refs.span.textContent = event.currentTarget.value;
+// function onInputChange(event) {
+//   refs.span.textContent = event.currentTarget.value;
 
-  if (event.currentTarget.value === '') {
-    refs.span.textContent = 'Anonymous';
-  }
+//   if (event.currentTarget.value === '') {
+//     refs.span.textContent = 'Anonymous';
+//   }
+// }
+
+// ========================================
+
+function onInputChange({ target: { value } }) {
+  // console.dir(refs.input);
+  refs.span.textContent = value.trim() === '' ? 'Anonymous' : value;
 }
